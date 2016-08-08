@@ -1,4 +1,4 @@
-// Karma configuration file, see link for more information		
+// Karma configuration file, see link for more information
 // https://karma-runner.github.io/0.13/config/configuration-file.html
 
 module.exports = function (config) {
@@ -9,7 +9,8 @@ module.exports = function (config) {
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-coverage'),
-      require('angular-cli/plugins/karma')
+      require('angular-cli/plugins/karma'),
+      require('karma-mocha-reporter')
     ],
     customLaunchers: {
       // chrome setup for travis CI using chromium
@@ -25,7 +26,7 @@ module.exports = function (config) {
       './src/test.ts': ['angular-cli']
     },
     angularCliConfig: './angular-cli.json',
-    reporters: ['coverage', 'progress'],
+    reporters: ['mocha', 'coverage', 'progress'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
