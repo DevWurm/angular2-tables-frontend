@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PolymerElement} from "@vaadin/angular2-polymer";
+require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
   selector: 'pc-article-selector',
