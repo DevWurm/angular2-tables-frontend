@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {PolymerElement} from "@vaadin/angular2-polymer";
+import {AvailiableArticlesService} from "./shared/availiable-articles.service";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
@@ -8,13 +9,36 @@ require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.ht
   styleUrls: ['article-selector.component.css'],
   directives: [
     PolymerElement('vaadin-grid')
-  ]
+  ],
+  providers: [AvailiableArticlesService]
 })
-export class ArticleSelectorComponent implements OnInit {
+export class ArticleSelectorComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+  private title = "Filter articles";
+
+  @ViewChild('articles-list')
+  private articlesList;
+
+  constructor(private articlesService: AvailiableArticlesService) {
+  }
 
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    this.articlesList.items = this.getArticles;
+  }
+
+
+  getArticles(params, callback) {
+    this.articlesService.getArticles(params.index, params.count).subscribe(
+      data => {
+        if ((this.articlesList.size == params.index + params.count) && !(data.length < params.count)) {
+          this.articlesList.size += 50;
+        }
+        callback(data);
+      },
+      error => console.error(error)
+    );
+  }
 }
