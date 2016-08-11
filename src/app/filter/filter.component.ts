@@ -10,6 +10,8 @@ import {ArticleSelectorComponent} from "./article-selector/article-selector.comp
 })
 export class FilterComponent implements OnInit {
 
+  private title = "Filter data";
+
   constructor(private router:Router) { }
 
   ngOnInit() {
