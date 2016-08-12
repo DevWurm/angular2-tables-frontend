@@ -1,4 +1,5 @@
 import {OpaqueToken} from "@angular/core";
+
 export interface ApiConfiguration {
   apiUrl: String
   apiPort: String
