@@ -1,6 +1,6 @@
 import {Injectable, Inject} from '@angular/core';
 import {Http} from "@angular/http";
-import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../../shared/api-configuration";
+import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../shared/api-configuration";
 
 @Injectable()
 export class AvailableArticlesService {
