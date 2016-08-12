@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
 import { addProviders, async, inject } from '@angular/core/testing';
-import { AvailiableArticlesService } from './availiable-articles.service';
+import { AvailableArticlesService } from './available-articles.service';
 
 describe('Service: AvailiableArticles', () => {
   beforeEach(() => {
-    addProviders([AvailiableArticlesService]);
+    addProviders([AvailableArticlesService]);
   });
 
   it('should ...',
-    inject([AvailiableArticlesService],
-      (service: AvailiableArticlesService) => {
+    inject([AvailableArticlesService],
+      (service: AvailableArticlesService) => {
         expect(service).toBeTruthy();
       }));
 });

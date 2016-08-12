@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {PolymerElement} from "@vaadin/angular2-polymer";
-import {AvailiableArticlesService} from "./shared/availiable-articles.service";
+import {AvailableArticlesService} from "./shared/available-articles.service";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
@@ -10,7 +10,7 @@ require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.ht
   directives: [
     PolymerElement('vaadin-grid')
   ],
-  providers: [AvailiableArticlesService]
+  providers: [AvailableArticlesService]
 })
 export class ArticleSelectorComponent implements OnInit, AfterViewInit {
 
@@ -19,7 +19,7 @@ export class ArticleSelectorComponent implements OnInit, AfterViewInit {
   @ViewChild('articles-list')
   private articlesList;
 
-  constructor(private articlesService: AvailiableArticlesService) {
+  constructor(private articlesService: AvailableArticlesService) {
   }
 
   ngOnInit() {

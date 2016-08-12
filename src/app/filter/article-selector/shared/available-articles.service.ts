@@ -3,7 +3,7 @@ import {Http} from "@angular/http";
 import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../../shared/api-configuration";
 
 @Injectable()
-export class AvailiableArticlesService {
+export class AvailableArticlesService {
 
   private apiAddr: String;
 
