@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import {ApiConfiguration} from "./api-configuration";
 
 const env = require('!json-loader!../config/env.json');
 const development = require('!json-loader!../config/development.json');
 const production = require('!json-loader!../config/production.json');
 
 @Injectable()
-export class ConfigFileApiConfigurationService {
+export class ConfigFileApiConfigurationService implements ApiConfiguration {
 
   private _apiUrl: String;
   private _apiPort: String;
