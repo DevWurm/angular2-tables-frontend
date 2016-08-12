@@ -1,13 +1,13 @@
 import {Injectable, Inject} from '@angular/core';
 import {Http} from "@angular/http";
-import {ApiConfiguration} from "../../../shared/api-configuration";
+import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../../shared/api-configuration";
 
 @Injectable()
 export class AvailiableArticlesService {
 
   private apiAddr: String;
 
-  constructor(private http: Http, @Inject('ApiConfiguration') private apiConfig: ApiConfiguration) {
+  constructor(private http: Http, @Inject(API_CONFIGURATION_TOKEN) private apiConfig: ApiConfiguration) {
     this.apiAddr = `${this.apiConfig.apiUrl ? this.apiConfig.apiUrl : ""}${this.apiConfig.apiPort ? ":" + this.apiConfig.apiPort: ""}api/v${this.apiConfig.apiVersion}/`
   }
 
