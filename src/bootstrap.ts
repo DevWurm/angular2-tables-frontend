@@ -3,9 +3,11 @@ import { enableProdMode } from '@angular/core';
 import { AppComponent, environment } from './app/';
 import {appRouterProviders} from "./app/app.routes";
 import {HTTP_PROVIDERS} from "@angular/http";
+import {API_CONFIGURATION_TOKEN} from "./app/shared/api-configuration";
+import {ConfigFileApiConfigurationService} from "./app/shared/config-file-api-configuration.service";
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [appRouterProviders, HTTP_PROVIDERS]);
+bootstrap(AppComponent, [appRouterProviders, HTTP_PROVIDERS, {provide: API_CONFIGURATION_TOKEN, useClass: ConfigFileApiConfigurationService}]);
