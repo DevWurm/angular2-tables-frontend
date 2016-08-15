@@ -1,6 +1,6 @@
 import {Injectable, Inject} from '@angular/core';
 import {Http} from "@angular/http";
-import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../shared/api-configuration";
+import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../shared";
 
 @Injectable()
 export class AvailableArticlesService {
@@ -8,7 +8,7 @@ export class AvailableArticlesService {
   private apiAddr: String;
 
   constructor(private http: Http, @Inject(API_CONFIGURATION_TOKEN) private apiConfig: ApiConfiguration) {
-    this.apiAddr = `${this.apiConfig.apiUrl ? this.apiConfig.apiUrl : ""}${this.apiConfig.apiPort ? ":" + this.apiConfig.apiPort: ""}api/v${this.apiConfig.apiVersion}/`
+    this.apiAddr = `http://${this.apiConfig.apiUrl ? this.apiConfig.apiUrl : ""}${this.apiConfig.apiPort ? ":" + this.apiConfig.apiPort: ""}/api/v${this.apiConfig.apiVersion}`
   }
 
   getAllArticles() {
