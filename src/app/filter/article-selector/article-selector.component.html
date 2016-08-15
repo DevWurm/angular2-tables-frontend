@@ -1,7 +1,7 @@
 <h3>
   {{title}}
 </h3>
-<vaadin-grid id="articles-list">
+<vaadin-grid #articlesList [items]="gridData" [(size)]="gridSize">
   <table>
     <colgroup>
       <col name="article">
@@ -11,7 +11,5 @@
       <th>Article</th>
     </tr>
     </thead>
-    <tbody>
-    </tbody>
   </table>
 </vaadin-grid>
