@@ -8,9 +8,9 @@ const production = require('!json-loader!../config/production.json');
 @Injectable()
 export class ConfigFileApiConfigurationService implements ApiConfiguration {
 
-  private _apiUrl: String;
-  private _apiPort: String;
-  private _apiVersion: String;
+  private _apiUrl: string;
+  private _apiPort: string;
+  private _apiVersion: string;
 
   constructor() {
     if (env.environment == "production") {
@@ -27,27 +27,27 @@ export class ConfigFileApiConfigurationService implements ApiConfiguration {
   }
 
 
-  get apiUrl(): String {
+  get apiUrl(): string {
     return this._apiUrl;
   }
 
-  set apiUrl(value: String) {
+  set apiUrl(value: string) {
     throw new Error('Not allowed to set configuration value after initialization');
   }
 
-  get apiPort(): String {
+  get apiPort(): string {
     return this._apiPort;
   }
 
-  set apiPort(value: String) {
+  set apiPort(value: string) {
     throw new Error('Not allowed to set configuration value after initialization');
   }
 
-  get apiVersion(): String {
+  get apiVersion(): string {
     return this._apiVersion;
   }
 
-  set apiVersion(value: String) {
+  set apiVersion(value: string) {
     throw new Error('Not allowed to set configuration value after initialization');
   }
 }

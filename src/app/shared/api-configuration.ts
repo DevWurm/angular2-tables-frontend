@@ -1,9 +1,9 @@
 import {OpaqueToken} from "@angular/core";
 
 export interface ApiConfiguration {
-  apiUrl: String
-  apiPort: String
-  apiVersion: String
+  apiUrl: string;
+  apiPort: string;
+  apiVersion: string;
 }
 
 export const  API_CONFIGURATION_TOKEN = new OpaqueToken('ApiConfiguration');
