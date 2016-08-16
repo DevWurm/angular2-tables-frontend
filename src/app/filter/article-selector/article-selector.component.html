@@ -1,7 +1,7 @@
 <h3>
   {{title}}
 </h3>
-<vaadin-grid #articlesList [items]="gridData" [(size)]="gridSize" selection-mode="multi" (selected-items-changed)="updateSelection(articlesList.selection)">
+<vaadin-grid #articlesList [items]="gridData" [(size)]="gridSize" selection-mode="multi" (selected-items-changed)="updateSelection(articlesList.selection, articlesList.getItem.bind(articlesList))">
   <table>
     <colgroup>
       <col name="article">
