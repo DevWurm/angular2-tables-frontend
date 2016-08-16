@@ -5,9 +5,10 @@ import {appRouterProviders} from "./app/app.routes";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {API_CONFIGURATION_TOKEN} from "./app/shared/api-configuration";
 import {ConfigFileApiConfigurationService} from "./app/shared/config-file-api-configuration.service";
+import {ArticleSelectionService} from "./app/shared/article-selection/article-selection.service";
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [appRouterProviders, HTTP_PROVIDERS, {provide: API_CONFIGURATION_TOKEN, useClass: ConfigFileApiConfigurationService}]);
+bootstrap(AppComponent, [appRouterProviders, HTTP_PROVIDERS, {provide: API_CONFIGURATION_TOKEN, useClass: ConfigFileApiConfigurationService}, ArticleSelectionService]);
