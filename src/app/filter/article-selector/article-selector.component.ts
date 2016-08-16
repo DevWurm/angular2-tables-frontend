@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {PolymerElement} from "@vaadin/angular2-polymer";
 import {AvailableArticlesService} from "./shared/available-articles.service";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
@@ -12,7 +12,10 @@ require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.ht
   ],
   providers: [AvailableArticlesService]
 })
-export class ArticleSelectorComponent implements OnInit {
+export class ArticleSelectorComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('articlesList')
+  private grid: any;
 
   private title = "Filter articles";
 
@@ -25,6 +28,17 @@ export class ArticleSelectorComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    this.grid.nativeElement.then(() => {
+      this.setupArticlesList(this.grid.nativeElement.selection);
+    })
+  }
+
+  setupArticlesList(selection) {
+    // resetting the selection mode because setting 'all' in markup causes errors
+    selection.mode = 'all';
+  }
+
   getArticles(params: any, callback: Function) {
     this.articlesService.getArticles(params.index, params.count).subscribe(
       data => {
@@ -35,5 +49,13 @@ export class ArticleSelectorComponent implements OnInit {
       },
       error => console.error(error)
     );
+  }
+
+  updateSelection(selection) {
+    if (selection.mode == 'all') {
+      console.log(selection.deselected());
+    } else {
+      console.log(selection.selected());
+    }
   }
 }
