@@ -3,8 +3,8 @@ import { enableProdMode } from '@angular/core';
 import { AppComponent, environment } from './app/';
 import {appRouterProviders} from "./app/app.routes";
 import {HTTP_PROVIDERS} from "@angular/http";
-import {API_CONFIGURATION_TOKEN} from "./app/shared/api-configuration";
-import {ConfigFileApiConfigurationService} from "./app/shared/config-file-api-configuration.service";
+import {API_CONFIGURATION_TOKEN} from "./app/shared/configuration/api-configuration";
+import {ConfigFileApiConfigurationService} from "./app/shared/configuration/config-file-api-configuration.service";
 import {ArticleSelectionService} from "./app/shared/article-selection/article-selection.service";
 
 if (environment.production) {
