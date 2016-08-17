@@ -1,0 +1,15 @@
+<h3>
+  {{title}}
+</h3>
+<vaadin-grid #datesList [items]="gridData" [(size)]="gridSize" selection-mode="multi" (selected-items-changed)="updateSelection(datesList.selection)">
+  <table>
+    <colgroup>
+      <col>
+    </colgroup>
+    <thead>
+    <tr>
+      <th>Date</th>
+    </tr>
+    </thead>
+  </table>
+</vaadin-grid>
