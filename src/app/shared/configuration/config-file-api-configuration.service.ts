@@ -7,7 +7,7 @@ const production = require('!json-loader!../../config/production.json');
 
 @Injectable()
 export class ConfigFileApiConfigurationService implements ApiConfiguration {
-
+  private _apiProtocol: string;
   private _apiUrl: string;
   private _apiPort: string;
   private _apiVersion: string;
@@ -21,33 +21,34 @@ export class ConfigFileApiConfigurationService implements ApiConfiguration {
   }
 
   private setConfiguration(configuration) {
+    this._apiProtocol = configuration.apiProtocol;
     this._apiUrl = configuration.apiUrl;
     this._apiPort = configuration.apiPort;
     this._apiVersion = configuration.apiVersion;
   }
 
+  get apiProtocol(): string {
+    return this._apiProtocol;
+  }
 
   get apiUrl(): string {
     return this._apiUrl;
-  }
-
-  set apiUrl(value: string) {
-    throw new Error('Not allowed to set configuration value after initialization');
   }
 
   get apiPort(): string {
     return this._apiPort;
   }
 
-  set apiPort(value: string) {
-    throw new Error('Not allowed to set configuration value after initialization');
-  }
-
   get apiVersion(): string {
     return this._apiVersion;
   }
 
-  set apiVersion(value: string) {
-    throw new Error('Not allowed to set configuration value after initialization');
+  get apiBaseAddr(): string {
+    let protocolString = this._apiProtocol ? this._apiProtocol + '://' : '';
+    let urlString = this._apiUrl || '';
+    let portString = this._apiPort ? ':' + this._apiPort : '';
+    let versionString = this._apiVersion || '1';
+
+    return `${protocolString}${urlString}${portString}/api/v${versionString}`;
   }
 }
