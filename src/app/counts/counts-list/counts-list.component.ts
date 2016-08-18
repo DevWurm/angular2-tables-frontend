@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
 import {PolymerElement} from "@vaadin/angular2-polymer";
 import {CountsService} from "./shared/counts/counts.service";
 import {DatesSelectionService} from "../../shared/dates-selection/dates-selection.service";
+import {Subscription} from "rxjs";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
@@ -15,9 +16,11 @@ require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.ht
     CountsService,
   ]
 })
-export class CountsListComponent implements OnInit, AfterViewInit {
+export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('countsList')
   grid: any;
+
+  private subscriptions: Array<Subscription> = [];
 
   private gridSize: number = 10;
   private gridData = this.getCounts.bind(this);
@@ -29,7 +32,13 @@ export class CountsListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.grid.nativeElement.then(() => {
-      this.setupColumns(this.grid.nativeElement);
+      this.subscriptions.push(this.setupColumns(this.grid.nativeElement));
+    })
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => {
+      subscription.unsubscribe();
     })
   }
 
@@ -46,9 +55,8 @@ export class CountsListComponent implements OnInit, AfterViewInit {
   }
 
   setupColumns(grid: any) {
-    this.datesService.datesSelectionSubject.subscribe(
+    return this.datesService.datesSelectionSubject.subscribe(
       dates => {
-        console.log(dates);
         dates.forEach(date => {
           grid.addColumn({name: date});
         });
