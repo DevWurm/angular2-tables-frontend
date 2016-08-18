@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {PolymerElement} from "@vaadin/angular2-polymer";
-import {AvailableArticlesService} from "./shared/available-articles.service";
+import {AvailableArticlesService} from "./shared/articles/available-articles.service";
 import {ArticleRange} from "../../shared/article-selection/article-range";
 import {ArticleSelection} from "../../shared/article-selection/article-selection";
 import {SelectionMode} from "../../shared/article-selection/selection-mode.enum";
