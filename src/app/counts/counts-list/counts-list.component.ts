@@ -3,6 +3,10 @@ import {PolymerElement} from "@vaadin/angular2-polymer";
 import {CountsService} from "./shared/counts/counts.service";
 import {DatesSelectionService} from "../../shared/dates-selection/dates-selection.service";
 import {Subscription} from "rxjs";
+import {SortingSelectionService} from "./shared/sorting/sorting-selection.service";
+import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
+import {Sorting} from "./shared/sorting/sorting";
+import {SortingSelection} from "./shared/sorting/sorting-selection";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
@@ -14,6 +18,7 @@ require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.ht
   ],
   providers: [
     CountsService,
+    SortingSelectionService
   ]
 })
 export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
@@ -25,7 +30,7 @@ export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
   private gridSize: number = 10;
   private gridData = this.getCounts.bind(this);
 
-  constructor(private countsService: CountsService, private datesService: DatesSelectionService) { }
+  constructor(private countsService: CountsService, private datesService: DatesSelectionService, private sortingService: SortingSelectionService) { }
 
   ngOnInit() {
   }
@@ -60,9 +65,30 @@ export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.datesService.datesSelectionSubject.subscribe(
       dates => {
         dates.forEach(date => {
-          grid.addColumn({name: date, hidable: true});
+          grid.addColumn({name: date, hidable: true, sortable: true});
         });
       }
     )
+  }
+
+  updateSorting(sortOrder: Array<{column: number, direction: string}>, grid: any) {
+    let sortings = sortOrder.map(sort => {
+      // get the name of the column from the array of selected dates; if the sorted column is 0 (-> the article column)
+      // use the article for sorting otherwise use the colum number decremented by 1 to search in the selected columns
+      if (sort.column == 0) {
+        let order = sort.direction == 'desc' ? SortingOrder.DESC : SortingOrder.ASC;
+
+        return new Sorting('article', order);
+      } else {
+        let property = this.datesService.datesSelection[sort.column];
+        let order = sort.direction == 'desc' ? SortingOrder.DESC : SortingOrder.ASC;
+
+        return new Sorting(property, order);
+      }
+    });
+
+    this.sortingService.sortingSelection = new SortingSelection(sortings);
+
+    grid.refreshItems();
   }
 }

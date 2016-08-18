@@ -1,7 +1,7 @@
-<vaadin-grid #countsList [items]="gridData" [(size)]="gridSize" frozen-columns="1">
+<vaadin-grid #countsList [items]="gridData" [(size)]="gridSize" frozen-columns="1" (sort-order-changed)="updateSorting(countsList.sortOrder, countsList)">
   <table>
     <colgroup>
-      <col name="article">
+      <col name="article" sortable="">
     </colgroup>
     <thead>
     <tr>
