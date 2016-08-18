@@ -58,7 +58,7 @@ export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.datesService.datesSelectionSubject.subscribe(
       dates => {
         dates.forEach(date => {
-          grid.addColumn({name: date});
+          grid.addColumn({name: date, hidable: true});
         });
       }
     )
