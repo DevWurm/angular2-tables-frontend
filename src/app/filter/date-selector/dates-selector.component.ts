@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {PolymerElement} from "@vaadin/angular2-polymer";
-import {AvailableDatesService} from "./shared/available-dates.service";
+import {AvailableDatesService} from "./shared/dates/available-dates.service";
 import {DatesSelectionService} from "../../shared/dates-selection/dates-selection.service";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 

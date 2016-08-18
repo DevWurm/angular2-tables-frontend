@@ -1,6 +1,6 @@
 import {Injectable, Inject} from '@angular/core';
 import {Http} from "@angular/http";
-import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../shared";
+import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../.";
 import {Observable, ReplaySubject} from "rxjs";
 
 @Injectable()
