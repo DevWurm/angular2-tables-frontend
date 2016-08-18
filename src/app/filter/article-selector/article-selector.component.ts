@@ -5,6 +5,8 @@ import {ArticleRange} from "../../shared/article-selection/article-range";
 import {ArticleSelection} from "../../shared/article-selection/article-selection";
 import {SelectionMode} from "../../shared/article-selection/selection-mode.enum";
 import {ArticleSelectionService} from "../../shared/article-selection/article-selection.service";
+import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
+import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
@@ -14,7 +16,10 @@ require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.ht
   directives: [
     PolymerElement('vaadin-grid')
   ],
-  providers: [AvailableArticlesService]
+  providers: [
+    AvailableArticlesService,
+    SortingOrderSelectionService
+  ]
 })
 export class ArticleSelectorComponent implements OnInit, AfterViewInit {
 
@@ -26,7 +31,7 @@ export class ArticleSelectorComponent implements OnInit, AfterViewInit {
   private gridSize: number = 10;
   private gridData = this.getArticles.bind(this);
 
-  constructor(private articlesService: AvailableArticlesService, private selectionService: ArticleSelectionService) {}
+  constructor(private articlesService: AvailableArticlesService, private selectionService: ArticleSelectionService, private sortingService: SortingOrderSelectionService) {}
 
   ngOnInit() {
   }
@@ -110,5 +115,13 @@ export class ArticleSelectorComponent implements OnInit, AfterViewInit {
       });
 
     return Promise.all(rangePrmss);
+  }
+
+  updateSorting(sortingOrder: Array<{column: number, direction: string}>, grid: any) {
+    let order = sortingOrder[0].direction == 'desc' ? SortingOrder.DESC : SortingOrder.ASC;
+
+    this.sortingService.sortingOrder = order;
+
+    grid.refreshItems()
   }
 }
