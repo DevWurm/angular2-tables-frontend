@@ -7,7 +7,7 @@ import { CountsListComponent } from './counts-list.component';
 
 describe('Component: CountsList', () => {
   it('should create an instance', () => {
-    let component = new CountsListComponent();
+    let component = new CountsListComponent(null, null);
     expect(component).toBeTruthy();
   });
 });

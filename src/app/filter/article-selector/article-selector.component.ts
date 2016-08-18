@@ -47,6 +47,8 @@ export class ArticleSelectorComponent implements OnInit, AfterViewInit {
       data => {
         if ((this.gridSize <= params.index + params.count) && !(data.length < params.count)) {
           this.gridSize += 10;
+        } else if ((data.length < params.count)) {
+          this.gridSize = params.index + data.length;
         }
         callback(data);
       },
