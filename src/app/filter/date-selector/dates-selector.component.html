@@ -1,10 +1,10 @@
 <h3>
   {{title}}
 </h3>
-<vaadin-grid #datesList [items]="gridData" [(size)]="gridSize" selection-mode="multi" (selected-items-changed)="updateSelection(datesList.selection)">
+<vaadin-grid #datesList [items]="gridData" [(size)]="gridSize" selection-mode="multi" (selected-items-changed)="updateSelection(datesList.selection)" (sort-order-changed)="updateSorting(datesList.sortOrder, datesList)">
   <table>
     <colgroup>
-      <col>
+      <col sortable="">
     </colgroup>
     <thead>
     <tr>

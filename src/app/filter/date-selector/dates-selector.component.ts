@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
 import {PolymerElement} from "@vaadin/angular2-polymer";
 import {AvailableDatesService} from "./shared/dates/available-dates.service";
 import {DatesSelectionService} from "../../shared/dates-selection/dates-selection.service";
+import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
+import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
@@ -11,7 +13,10 @@ require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.ht
   directives: [
     PolymerElement('vaadin-grid')
   ],
-  providers: [AvailableDatesService]
+  providers: [
+    AvailableDatesService,
+    SortingOrderSelectionService
+  ]
 })
 export class DatesSelectorComponent implements OnInit, AfterViewInit {
 
@@ -23,7 +28,7 @@ export class DatesSelectorComponent implements OnInit, AfterViewInit {
   private gridSize: number = 10;
   private gridData = this.getDates.bind(this);
 
-  constructor(private datesService: AvailableDatesService, private selectionService: DatesSelectionService) {}
+  constructor(private datesService: AvailableDatesService, private selectionService: DatesSelectionService, private sortingService: SortingOrderSelectionService) {}
 
   ngOnInit() {
   }
@@ -67,5 +72,13 @@ export class DatesSelectorComponent implements OnInit, AfterViewInit {
         this.selectionService.datesSelection = dates.filter((date, index) => selectedIndices.indexOf(index) >= 0);
       })
     }
+  }
+
+  updateSorting(sortingOrder: Array<{column: number, direction: string}>, grid: any) {
+    let order = sortingOrder[0].direction == 'desc' ? SortingOrder.DESC : SortingOrder.ASC;
+
+    this.sortingService.sortingOrder = order;
+
+    grid.refreshItems()
   }
 }
