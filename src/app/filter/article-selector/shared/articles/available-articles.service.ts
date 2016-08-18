@@ -1,6 +1,6 @@
 import {Injectable, Inject} from '@angular/core';
 import {Http} from "@angular/http";
-import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../../shared/configuration/api-configuration";
+import {ApiConfiguration, API_CONFIGURATION_TOKEN} from "../../../../shared";
 import {SortingOrderSelectionService} from "../../../shared/sorting/sorting-order-selection.service";
 import {SortingOrder} from "../../../../shared/sorting/sorting-order.enum";
 
