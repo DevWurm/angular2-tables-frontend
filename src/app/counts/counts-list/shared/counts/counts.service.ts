@@ -10,11 +10,11 @@ export class CountsService {
   constructor(private http: Http, @Inject(API_CONFIGURATION_TOKEN) private apiConfig: ApiConfiguration, private selection: ArticleSelectionService) {}
 
   getAllCounts() {
-    return this.http.get(`${this.apiConfig.apiBaseAddr}/articles?${this.getRangeQuery()}`).map(res => res.json());
+    return this.http.get(`${this.apiConfig.apiBaseAddr}/counts?${this.getRangeQuery()}`).map(res => res.json());
   }
 
   getCounts(index: number, count: number) {
-    return this.http.get(`${this.apiConfig.apiBaseAddr}/articles?${this.getRangeQuery()}index=${index}&count=${count}`).map(res => res.json());
+    return this.http.get(`${this.apiConfig.apiBaseAddr}/counts?${this.getRangeQuery()}index=${index}&count=${count}`).map(res => res.json());
   }
 
   getRangeQuery(): string {
