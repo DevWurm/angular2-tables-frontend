@@ -12,4 +12,4 @@ if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [appRouterProviders, HTTP_PROVIDERS, {provide: API_CONFIGURATION_TOKEN, useClass: ConfigFileApiConfigurationService}, ArticleSelectionService, DatesSelectionService]);
+bootstrap(AppComponent, [appRouterProviders, HTTP_PROVIDERS, {provide: API_CONFIGURATION_TOKEN, useClass: ConfigFileApiConfigurationService}]);
