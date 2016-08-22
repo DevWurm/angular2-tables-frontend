@@ -7,6 +7,19 @@
   left: 0;
 }
 
+paper-scroll-header-panel {
+  display: flex;
+  flex-direction: column;
+}
+
 .paper-header {
   position: relative;
+  padding: 1%;
+  @apply(--shadow-elevation-2dp);
+}
+
+.heading {
+  @apply(--paper-font-display4);
+  margin: 0;
+  padding: 0.5%;
 }
