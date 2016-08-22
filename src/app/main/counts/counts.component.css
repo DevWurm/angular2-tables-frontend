@@ -1,0 +1,28 @@
+.title {
+  @apply(--paper-font-headline);
+  margin: 0;
+  padding: 1%;
+
+  /* Paper seam */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.lists {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  /* Paper seam */
+  padding-bottom: 1.5%;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.list {
+  flex-grow: 1;
+  min-width: 400px;
+}
+
+.back-button {
+  margin: 1.95%;
+}
