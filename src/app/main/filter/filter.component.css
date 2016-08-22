@@ -1,9 +1,24 @@
+.title {
+  @apply(--paper-font-headline);
+  margin: 0;
+  padding: 1%;
+
+  /* Paper seam */
+  border-bottom: 1px solid #e0e0e0;
+}
+
 .selectors {
   width: 100%;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .selector {
-  width: 50%;
+  flex-grow: 1;
+  min-width: 400px;
+}
+
+.next-button {
+  margin: 1.5%;
 }
