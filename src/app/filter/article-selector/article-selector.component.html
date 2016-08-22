@@ -1,6 +1,7 @@
 <h3>
   {{title}}
 </h3>
+<input type="text" placeholder="Filter" [(ngModel)]="filterText" (ngModelChange)="updateFilter($event, articlesList)">
 <vaadin-grid #articlesList [items]="gridData" [(size)]="gridSize" selection-mode="multi" (selected-items-changed)="updateSelection(articlesList.selection, articlesList.getItem.bind(articlesList))" (sort-order-changed)="updateSorting(articlesList.sortOrder, articlesList)">
   <table>
     <colgroup>
@@ -8,7 +9,9 @@
     </colgroup>
     <thead>
     <tr>
-      <th>Article</th>
+      <th>
+        Article
+      </th>
     </tr>
     </thead>
   </table>

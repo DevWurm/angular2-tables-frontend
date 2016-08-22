@@ -7,6 +7,7 @@ import {SelectionMode} from "../../shared/article-selection/selection-mode.enum"
 import {ArticleSelectionService} from "../../shared/article-selection/article-selection.service";
 import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
+import {FilterService} from "../../shared/filter/filter.service";
 require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
@@ -31,7 +32,9 @@ export class ArticleSelectorComponent implements OnInit, AfterViewInit {
   private gridSize: number = 10;
   private gridData = this.getArticles.bind(this);
 
-  constructor(private articlesService: AvailableArticlesService, private selectionService: ArticleSelectionService, private sortingService: SortingOrderSelectionService) {}
+  /* dummy property to bind the input to, to enable the ngModelChanged Event */ private filterText: string;
+
+  constructor(private articlesService: AvailableArticlesService, private selectionService: ArticleSelectionService, private sortingService: SortingOrderSelectionService, private  filterService: FilterService) {}
 
   ngOnInit() {
   }
@@ -123,5 +126,11 @@ export class ArticleSelectorComponent implements OnInit, AfterViewInit {
     this.sortingService.sortingOrder = order;
 
     grid.refreshItems()
+  }
+
+  updateFilter(filterText: string, grid: any) {
+    this.filterService.filter = filterText;
+
+    grid.refreshItems();
   }
 }
