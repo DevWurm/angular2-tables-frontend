@@ -1,5 +1,6 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {MainComponent} from "./main/main.component";
+require("!include-loader!../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
   selector: 'app-root',
