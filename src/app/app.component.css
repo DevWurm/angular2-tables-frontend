@@ -1,5 +1,8 @@
-html, body {
-  height: 90%;
+html, body, app-root {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
   @apply(--paper-font-common-base);
   color: var(--primary-text-color, #000);
   background-color: var(--primary-background-color, #fff);

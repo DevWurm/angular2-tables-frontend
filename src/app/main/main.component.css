@@ -1,4 +1,4 @@
-:host, paper-scroll-header-panel {
+pc-main, paper-scroll-header-panel {
   height: 100%;
   position: absolute;
   top: 0;
@@ -8,18 +8,29 @@
 }
 
 paper-scroll-header-panel {
-  display: flex;
-  flex-direction: column;
+  --paper-scroll-header-panel-full-header: {
+  };
 }
 
 .paper-header {
   position: relative;
-  padding: 1%;
+  height: 168px;
   @apply(--shadow-elevation-2dp);
 }
 
 .heading {
+  position: absolute;
   @apply(--paper-font-display4);
   margin: 0;
+  padding: 19px;
+}
+/*
+.paper-header {
+  position: relative;
+  padding: 1%;
+}
+
+.heading {
   padding: 0.5%;
 }
+*/
