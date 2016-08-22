@@ -5,6 +5,7 @@ import {ArticleSelectionService} from "./shared/article-selection/article-select
 import {DatesSelectionService} from "./shared/dates-selection/dates-selection.service";
 import {PolymerElement} from "@vaadin/angular2-polymer";
 require("!include-loader!../../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html");
+require("!include-loader!../../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
   selector: 'pc-main',

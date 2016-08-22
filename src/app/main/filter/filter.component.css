@@ -1,10 +1,15 @@
+pc-filter {
+  height: 100%;
+}
+
 .title {
   @apply(--paper-font-headline);
   margin: 0;
   padding: 1%;
 
-  /* Paper seam */
-  border-bottom: 1px solid #e0e0e0;
+  background-color: var(--paper-teal-300);
+
+  @apply(--shadow-elevation-2dp);
 }
 
 .selectors {
@@ -23,6 +28,14 @@
   min-width: 400px;
 }
 
+.bottom {
+  height: 100%;
+  background-color: var(--paper-teal-300);
+
+  @apply(--shadow-elevation-2dp);
+}
+
 .next-button {
   margin: 1.95%;
+  background: var(--paper-amber-a400);
 }

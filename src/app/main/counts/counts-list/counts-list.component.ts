@@ -8,6 +8,7 @@ import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {Sorting} from "./shared/sorting/sorting";
 import {SortingSelection} from "./shared/sorting/sorting-selection";
 require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
+require("!include-loader!../../../../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
   selector: 'pc-counts-list',

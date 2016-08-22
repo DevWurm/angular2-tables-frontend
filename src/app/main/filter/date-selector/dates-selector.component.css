@@ -8,6 +8,9 @@
   /* move grid down 60px to be aligned with grid in article-selector */
   position: relative;
   top: 74px;
+
+  /* Set checkbox color */
+  --primary-color: var(--paper-amber-a700);
 }
 
 .indented {

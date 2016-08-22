@@ -4,6 +4,7 @@ import {ArticleSelectorComponent} from "./article-selector/article-selector.comp
 import {DatesSelectorComponent} from "./date-selector/dates-selector.component";
 import {PolymerElement} from "@vaadin/angular2-polymer";
 require("!include-loader!../../../../bower_components/paper-button/paper-button.html")
+require("!include-loader!../../../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
   selector: 'pc-filter',

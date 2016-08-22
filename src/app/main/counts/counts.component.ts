@@ -6,9 +6,10 @@ require("!include-loader!../../../../bower_components/paper-button/paper-button.
 require("!include-loader!../../../../bower_components/paper-tabs/paper-tabs.html");
 require("!include-loader!../../../../bower_components/paper-tabs/paper-tab.html");
 require("!include-loader!../../../../bower_components/iron-pages/iron-pages.html");
+require("!include-loader!../../../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
-  selector: 'app-counts',
+  selector: 'pc-counts',
   templateUrl: 'counts.component.html',
   styleUrls: ['counts.component.css'],
   directives: [

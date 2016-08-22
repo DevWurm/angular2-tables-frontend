@@ -10,6 +10,7 @@ import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {FilterService} from "../../shared/filter/filter.service";
 require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
 require('!include-loader!../../../../../bower_components/paper-input/paper-input.html');
+require("!include-loader!../../../../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
   selector: 'pc-article-selector',

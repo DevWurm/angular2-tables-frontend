@@ -5,6 +5,7 @@ import {DatesSelectionService} from "../../shared/dates-selection/dates-selectio
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
 require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
+require("!include-loader!../../../../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
   selector: 'pc-dates-selector',

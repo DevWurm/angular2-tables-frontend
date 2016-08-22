@@ -1,10 +1,11 @@
 <h3 class="title indented">
   {{title}}
 </h3>
-<div class="filter indented">
-  <paper-input label="Filter" (keyup)="updateFilter($event.target.value, articlesList)"></paper-input>
-</div>
-<vaadin-grid #articlesList [items]="gridData" [(size)]="gridSize" selection-mode="multi" (selected-items-changed)="updateSelection(articlesList.selection, articlesList.getItem.bind(articlesList))" (sort-order-changed)="updateSorting(articlesList.sortOrder, articlesList)">
+<paper-input class="filter indented" label="Filter"
+             (keyup)="updateFilter($event.target.value, articlesList)"></paper-input>
+<vaadin-grid class="grid" #articlesList [items]="gridData" [(size)]="gridSize" selection-mode="multi"
+             (selected-items-changed)="updateSelection(articlesList.selection, articlesList.getItem.bind(articlesList))"
+             (sort-order-changed)="updateSorting(articlesList.sortOrder, articlesList)">
   <table>
     <colgroup>
       <col name="article" sortable="">

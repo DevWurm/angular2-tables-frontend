@@ -7,6 +7,14 @@
 .filter {
   margin: 2%;
   margin-top: 1% !important;
+
+  /* Setting underline color when focused */
+  --paper-input-container-focus-color: var(--paper-amber-a400);
+}
+
+.grid {
+  /* Set checkbox color */
+  --primary-color: var(--paper-amber-a700);
 }
 
 .indented {

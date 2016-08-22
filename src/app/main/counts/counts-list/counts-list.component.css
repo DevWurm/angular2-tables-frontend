@@ -1,0 +1,4 @@
+.grid {
+  /* Set selection color */
+  --primary-color: var(--paper-amber-a700);
+}
