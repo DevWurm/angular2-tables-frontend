@@ -1,0 +1,15 @@
+.title {
+  @apply(--paper-font-subhead);
+  margin: 2%;
+  margin-bottom: 1% !important;
+}
+
+.grid {
+  /* move grid down 60px to be aligned with grid in article-selector */
+  position: relative;
+  top: 74px;
+}
+
+.indented {
+  margin-left: 3.6%;
+}
