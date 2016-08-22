@@ -2,6 +2,13 @@
   {{title}}
 </h2>
 <div class="lists">
-  <pc-counts-list class="list"></pc-counts-list>
+  <paper-tabs class="lists-selector" [(selected)]="selected">
+    <paper-tab>Vaadin-Grid</paper-tab>
+  </paper-tabs>
+  <iron-pages class="lists-view" [(selected)]="selected">
+    <div class="list">
+      <pc-counts-list></pc-counts-list>
+    </div>
+  </iron-pages>
 </div>
 <paper-button class="back-button" raised (click)="navigateToFilter()">Filter counts</paper-button>
