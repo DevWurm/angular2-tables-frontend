@@ -1,0 +1,14 @@
+.title {
+  @apply(--paper-font-subhead);
+  margin: 2%;
+  margin-bottom: 1% !important;
+}
+
+.filter {
+  margin: 2%;
+  margin-top: 1% !important;
+}
+
+.indented {
+  margin-left: 3.6%;
+}
