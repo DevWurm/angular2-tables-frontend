@@ -5,8 +5,6 @@ import {appRouterProviders} from "./app/app.routes";
 import {HTTP_PROVIDERS} from "@angular/http";
 import {API_CONFIGURATION_TOKEN} from "./app/shared/configuration/api-configuration";
 import {ConfigFileApiConfigurationService} from "./app/shared/configuration/config-file-api-configuration.service";
-import {ArticleSelectionService} from "./app/shared/article-selection/article-selection.service";
-import {DatesSelectionService} from "./app/shared/dates-selection/dates-selection.service";
 
 if (environment.production) {
   enableProdMode();

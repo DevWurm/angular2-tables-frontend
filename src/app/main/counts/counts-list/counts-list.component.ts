@@ -7,7 +7,7 @@ import {SortingSelectionService} from "./shared/sorting/sorting-selection.servic
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {Sorting} from "./shared/sorting/sorting";
 import {SortingSelection} from "./shared/sorting/sorting-selection";
-require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
+require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
   selector: 'pc-counts-list',

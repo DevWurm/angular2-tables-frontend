@@ -4,7 +4,7 @@ import {AvailableDatesService} from "./shared/dates/available-dates.service";
 import {DatesSelectionService} from "../../shared/dates-selection/dates-selection.service";
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
-require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
+require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
   selector: 'pc-dates-selector',

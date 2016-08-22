@@ -8,7 +8,7 @@ import {ArticleSelectionService} from "../../shared/article-selection/article-se
 import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {FilterService} from "../../shared/filter/filter.service";
-require('!include-loader!../../../../bower_components/vaadin-grid/vaadin-grid.html');
+require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
 
 @Component({
   selector: 'pc-article-selector',

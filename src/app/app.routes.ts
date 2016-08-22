@@ -1,6 +1,6 @@
 import {RouterConfig, provideRouter} from "@angular/router";
-import {FilterComponent} from "./filter/filter.component";
-import {CountsComponent} from "./counts/counts.component";
+import {FilterComponent} from "./main/filter/filter.component";
+import {CountsComponent} from "./main/counts/counts.component";
 
 const routes: RouterConfig = [
   {
