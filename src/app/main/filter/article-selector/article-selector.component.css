@@ -13,10 +13,12 @@
 }
 
 .grid {
+  position: relative;
+  bottom: 0;
   /* Set checkbox color */
   --primary-color: var(--paper-amber-a700);
 }
 
 .indented {
-  margin-left: 3.6%;
+  margin-left: 67px;
 }
