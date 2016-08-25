@@ -102,13 +102,13 @@ export class ArticleSelectorComponent implements OnInit, AfterViewInit {
       .map(rangeBordersIndices => {
         let beginningArticlePrms = new Promise<string>((resolve, reject) => {
           getItem(rangeBordersIndices.beginning, (err, item) => {
-            return err ? reject(err) : resolve(item.article);
+            return err ? reject(err) : resolve(item);
           }, false);
         });
 
         let endArticlePrms = new Promise<string>((resolve, reject) => {
           getItem(rangeBordersIndices.end, (err, item) => {
-            return err ? reject(err) : resolve(item.article);
+            return err ? reject(err) : resolve(item);
           }, false);
         });
 

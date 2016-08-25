@@ -49,7 +49,16 @@ export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getCounts(params: any, callback: Function) {
-    this.countsService.getCounts(params.index, params.count).subscribe(
+    this.countsService.getCounts(params.index, params.count).map(countsData => {
+      // flatten data, because Vaadin grid doesnt deal well with nested data
+      return countsData.map(countsDate => {
+        const accumulator =  {
+          article: countsDate.article
+        }
+
+        return countsDate.counts.reduce((acc, curr) => Object.assign(acc, {[curr.date]: curr.count}), accumulator);
+      })
+    }).subscribe(
       data => {
         if ((this.gridSize <= params.index + params.count) && !(data.length < params.count)) {
           this.gridSize += 10;
@@ -81,7 +90,7 @@ export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
 
         return new Sorting('article', order);
       } else {
-        let property = this.datesService.datesSelection[sort.column];
+        let property = this.datesService.datesSelection[sort.column - 1];
         let order = sort.direction == 'desc' ? SortingOrder.DESC : SortingOrder.ASC;
 
         return new Sorting(property, order);

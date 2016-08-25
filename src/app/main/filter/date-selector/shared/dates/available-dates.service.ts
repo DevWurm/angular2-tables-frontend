@@ -10,7 +10,7 @@ export class AvailableDatesService {
   private dates: ReplaySubject<Array<string>> = new ReplaySubject<Array<string>>(1);
 
   constructor(private http: Http, @Inject(API_CONFIGURATION_TOKEN) private apiConfig: ApiConfiguration, private sortingService: SortingOrderSelectionService) {
-    this.http.get(`${this.apiConfig.apiBaseAddr}/dates`).map(res => res.json()).map((data: {dates: Array<string>}) => data.dates).subscribe(this.dates);
+    this.http.get(`${this.apiConfig.apiBaseAddr}/dates`).map(res => res.json()).subscribe(this.dates);
   }
 
   getAllDates(): Observable<Array<any>> {
