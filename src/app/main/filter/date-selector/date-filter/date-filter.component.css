@@ -1,9 +1,18 @@
-#component {
+:host {
+  display: block;
+}
+
+#filters {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .date-filter {
   display: flex;
   flex-direction: row;
+}
+
+.filter-element {
+  flex-grow: 1;
 }

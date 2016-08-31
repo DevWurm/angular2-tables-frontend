@@ -4,8 +4,15 @@
   margin-bottom: 1% !important;
 }
 
+.filter {
+  margin: 2%;
+  margin-top: 1% !important;
+
+  /* Setting underline color when focused */
+  --paper-input-container-focus-color: var(--paper-amber-a400);
+}
+
 .grid {
-  /* move grid down 60px to be aligned with grid in article-selector */
   position: relative;
   bottom: 0;
 
