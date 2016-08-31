@@ -22,6 +22,8 @@
     "paper-input": "1.1.17",
     "paper-tabs": "1.6.2",
     "iron-pages": "1.0.8",
-    "paper-tooltip": "DevWurm/paper-tooltip#shadow-dom-behavior"
+    "paper-tooltip": "DevWurm/paper-tooltip#shadow-dom-behavior",
+    "vaadin-date-picker": "^1.1.3",
+    "vaadin-combo-box": "^1.1.3"
   }
 }
