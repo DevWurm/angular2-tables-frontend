@@ -1,4 +1,4 @@
-import {SortingOrder} from "../../../../shared/sorting/sorting-order.enum";
+import {SortingOrder} from "../../../shared/sorting/sorting-order.enum";
 
 export class Sorting {
   constructor(private _property: string, private _order: SortingOrder) {}
