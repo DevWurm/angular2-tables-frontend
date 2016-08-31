@@ -1,12 +1,18 @@
-<vaadin-grid class="grid" #countsList [items]="gridData" [(size)]="gridSize" frozen-columns="1" (sort-order-changed)="updateSorting(countsList.sortOrder, countsList)">
+<vaadin-grid id="counts-list" class="grid" #countsList [items]="gridData" [(size)]="gridSize" frozen-columns="1" (sort-order-changed)="updateSorting(countsList.sortOrder, countsList)">
   <table>
     <colgroup>
       <col name="article" sortable="">
     </colgroup>
     <thead>
     <tr>
-      <th>Article</th>
+      <th><span class="header-cell">Article</span></th>
     </tr>
     </thead>
   </table>
 </vaadin-grid>
+<paper-tooltip #sortingTooltip for="sortable" search-in-shadow-dom="counts-list" position="top" class="sorting-tooltip">
+  <div class="search-tooltip-content">
+    Click on a column header to sort.<br>
+    Shift+Click on multiple headers to sort after multiple columns.
+  </div>
+</paper-tooltip>

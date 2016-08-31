@@ -9,13 +9,15 @@ import {Sorting} from "./shared/sorting/sorting";
 import {SortingSelection} from "./shared/sorting/sorting-selection";
 require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
 require("!include-loader!../../../../../bower_components/paper-styles/paper-styles.html");
+require("!include-loader!../../../../../bower_components/paper-tooltip/paper-tooltip.html");
 
 @Component({
   selector: 'pc-counts-list',
   templateUrl: 'counts-list.component.html',
   styleUrls: ['counts-list.component.css'],
   directives: [
-    PolymerElement('vaadin-grid')
+    PolymerElement('vaadin-grid'),
+    PolymerElement('paper-tooltip')
   ],
   providers: [
     CountsService,
@@ -25,6 +27,9 @@ require("!include-loader!../../../../../bower_components/paper-styles/paper-styl
 export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('countsList')
   grid: any;
+
+  @ViewChild('sortingTooltip')
+  tooltip: any;
 
   private subscriptions: Array<Subscription> = [];
 
@@ -38,7 +43,11 @@ export class CountsListComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.grid.nativeElement.then(() => {
+      // setup grid columns if grid is loaded
       this.subscriptions.push(this.setupColumns(this.grid.nativeElement));
+
+      // re-attach tooltip, when all target elements in the grid are built
+      this.tooltip.nativeElement.attached();
     })
   }
 

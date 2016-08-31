@@ -2,3 +2,9 @@
   /* Set selection color */
   --primary-color: var(--paper-amber-a700);
 }
+
+paper-tooltip.sorting-tooltip {
+  --paper-tooltip: {
+    @apply(--paper-font-caption);
+  }
+}
