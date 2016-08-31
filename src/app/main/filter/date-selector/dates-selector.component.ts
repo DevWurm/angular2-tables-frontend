@@ -4,6 +4,8 @@ import {AvailableDatesService} from "./shared/dates/available-dates.service";
 import {DatesSelectionService} from "../../shared/dates-selection/dates-selection.service";
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
+import {DatesFilterService} from "./shared/dates-filter/dates-filter.service";
+import {DateFilterComponent} from "./date-filter/date-filter.component";
 require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
 require("!include-loader!../../../../../bower_components/paper-styles/paper-styles.html");
 
@@ -12,11 +14,13 @@ require("!include-loader!../../../../../bower_components/paper-styles/paper-styl
   templateUrl: 'dates-selector.component.html',
   styleUrls: ['dates-selector.component.css'],
   directives: [
-    PolymerElement('vaadin-grid')
+    PolymerElement('vaadin-grid'),
+    DateFilterComponent
   ],
   providers: [
     AvailableDatesService,
-    SortingOrderSelectionService
+    SortingOrderSelectionService,
+    DatesFilterService
   ]
 })
 export class DatesSelectorComponent implements OnInit, AfterViewInit {
@@ -29,7 +33,7 @@ export class DatesSelectorComponent implements OnInit, AfterViewInit {
   private gridSize: number = 10;
   private gridData = this.getDates.bind(this);
 
-  constructor(private datesService: AvailableDatesService, private selectionService: DatesSelectionService, private sortingService: SortingOrderSelectionService) {}
+  constructor(private datesService: AvailableDatesService, private selectionService: DatesSelectionService, private sortingService: SortingOrderSelectionService, private datesFilter: DatesFilterService) {}
 
   ngOnInit() {
   }
@@ -81,5 +85,17 @@ export class DatesSelectorComponent implements OnInit, AfterViewInit {
     this.sortingService.sortingOrder = order;
 
     grid.refreshItems()
+  }
+
+  updateFilterBeginning(value: Date, grid: any) {
+    this.datesFilter.filterBeginning = value;
+
+    grid.nativeElement.refreshItems()
+  }
+
+  updateFilterEnd(value: Date, grid: any) {
+    this.datesFilter.filterEnd = value;
+
+    grid.nativeElement.refreshItems()
   }
 }

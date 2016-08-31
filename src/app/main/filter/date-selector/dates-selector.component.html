@@ -1,6 +1,7 @@
 <h3 class="title indented">
   {{title}}
 </h3>
+<pc-date-filter (beginningChanged)="updateFilterBeginning($event, grid)" (endChanged)="updateFilterEnd($event, grid)"></pc-date-filter>
 <vaadin-grid class="grid" #datesList [items]="gridData" [(size)]="gridSize" selection-mode="multi" (selected-items-changed)="updateSelection(datesList.selection)" (sort-order-changed)="updateSorting(datesList.sortOrder, datesList)">
   <table>
     <colgroup>
