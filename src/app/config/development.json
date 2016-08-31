@@ -1,6 +1,6 @@
 {
   "apiProtocol": "http",
-  "apiUrl": "192.168.99.100",
+  "apiUrl": "127.0.0.1",
   "apiPort": "8080",
   "apiVersion": "1"
 }
