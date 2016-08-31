@@ -1,0 +1,10 @@
+<div id="component">
+  <div #dateBeginning class="date-filter date-beginning">
+    <vaadin-date-picker #dateBeginningDay (value-changed)="updateBeginning(dateBeginningDay.value, dateBeginningHour.value)" class="filter-element day-filter date-beginning-day"></vaadin-date-picker>
+    <vaadin-combo-box #dateBeginningHour [items]="hours" (value-changed)="updateBeginning(dateBeginningDay.value, dateBeginningHour.value)" class="filter-element hour-filter date-beginning-hour"></vaadin-combo-box>
+  </div>
+  <div #dateEnd class="date-filter date-end">
+    <vaadin-date-picker #dateEndDay (value-changed)="updateEnd(dateEndDay.value, dateEndHour.value)" class="filter-element day-filter date-end-day"></vaadin-date-picker>
+    <vaadin-combo-box #dateEndHour [items]="hours" (value-changed)="updateEnd(dateEndDay.value, dateEndHour.value)" class="filter-element hour-filter date-end-hour"></vaadin-combo-box>
+  </div>
+</div>

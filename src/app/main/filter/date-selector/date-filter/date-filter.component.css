@@ -1,0 +1,9 @@
+#component {
+  display: flex;
+  flex-direction: row;
+}
+
+.date-filter {
+  display: flex;
+  flex-direction: row;
+}
