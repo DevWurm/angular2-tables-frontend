@@ -1,19 +1,13 @@
 import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
-import {PolymerElement} from "@vaadin/angular2-polymer";
 import {AvailableDatesService} from "./shared/dates/available-dates.service";
 import {DatesSelectionService} from "../../shared/dates-selection/dates-selection.service";
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
-require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
-require("!include-loader!../../../../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
   selector: 'pc-dates-selector',
   templateUrl: 'dates-selector.component.html',
   styleUrls: ['dates-selector.component.css'],
-  directives: [
-    PolymerElement('vaadin-grid')
-  ],
   providers: [
     AvailableDatesService,
     SortingOrderSelectionService

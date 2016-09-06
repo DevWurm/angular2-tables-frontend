@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
-import {PolymerElement} from "@vaadin/angular2-polymer";
 import {CountsService} from "../shared/counts/counts.service";
 import {DatesSelectionService} from "../../shared/dates-selection/dates-selection.service";
 import {Subscription} from "rxjs";
@@ -7,18 +6,11 @@ import {SortingSelectionService} from "../shared/sorting/sorting-selection.servi
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {Sorting} from "../shared/sorting/sorting";
 import {SortingSelection} from "../shared/sorting/sorting-selection";
-require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
-require("!include-loader!../../../../../bower_components/paper-styles/paper-styles.html");
-require("!include-loader!../../../../../bower_components/paper-tooltip/paper-tooltip.html");
 
 @Component({
   selector: 'pc-counts-list',
   templateUrl: 'counts-list.component.html',
   styleUrls: ['counts-list.component.css'],
-  directives: [
-    PolymerElement('vaadin-grid'),
-    PolymerElement('paper-tooltip')
-  ],
   providers: [
     CountsService,
     SortingSelectionService

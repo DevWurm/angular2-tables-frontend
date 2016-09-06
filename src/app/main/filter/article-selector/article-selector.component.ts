@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild, AfterViewInit} from '@angular/core';
-import {PolymerElement} from "@vaadin/angular2-polymer";
 import {AvailableArticlesService} from "./shared/articles/available-articles.service";
 import {ArticleRange} from "../../shared/article-selection/article-range";
 import {ArticleSelection} from "../../shared/article-selection/article-selection";
@@ -8,18 +7,11 @@ import {ArticleSelectionService} from "../../shared/article-selection/article-se
 import {SortingOrderSelectionService} from "../shared/sorting/sorting-order-selection.service";
 import {SortingOrder} from "../../shared/sorting/sorting-order.enum";
 import {FilterService} from "../../shared/filter/filter.service";
-require('!include-loader!../../../../../bower_components/vaadin-grid/vaadin-grid.html');
-require('!include-loader!../../../../../bower_components/paper-input/paper-input.html');
-require("!include-loader!../../../../../bower_components/paper-styles/paper-styles.html");
 
 @Component({
   selector: 'pc-article-selector',
   templateUrl: 'article-selector.component.html',
   styleUrls: ['article-selector.component.css'],
-  directives: [
-    PolymerElement('vaadin-grid'),
-    PolymerElement('paper-input')
-  ],
   providers: [
     AvailableArticlesService,
     SortingOrderSelectionService
