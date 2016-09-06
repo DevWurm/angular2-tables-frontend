@@ -1,4 +1,12 @@
-import { bootstrap } from '@angular/platform-browser-dynamic';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import {AppModule} from "./app/app.module";
+
+platformBrowserDynamic().bootstrapModule(AppModule);
+
+/* TODO: Remove
+
+
+
 import { enableProdMode } from '@angular/core';
 import { AppComponent, environment } from './app/';
 import {appRouterProviders} from "./app/app.routes";
@@ -10,4 +18,5 @@ if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(AppComponent, [appRouterProviders, HTTP_PROVIDERS, {provide: API_CONFIGURATION_TOKEN, useClass: ConfigFileApiConfigurationService}]);
+bootstrap(AppComponent, [appRouterProviders, HTTP_PROVIDERS, ]);
+*/
