@@ -1,0 +1,18 @@
+<vaadin-grid id="results-list" class="grid" #resultsList [items]="gridData" [(size)]="gridSize" frozen-columns="1" (sort-order-changed)="updateSorting(resultsList.sortOrder, resultsList)">
+  <table>
+    <colgroup>
+      <col name="article" sortable="">
+    </colgroup>
+    <thead>
+    <tr>
+      <th><span class="header-cell">Article</span></th>
+    </tr>
+    </thead>
+  </table>
+</vaadin-grid>
+<paper-tooltip #sortingTooltip for="sortable" search-in-shadow-dom="results-list" position="top" class="sorting-tooltip">
+  <div class="search-tooltip-content">
+    Click on a column header to sort.<br>
+    Shift+Click on multiple headers to sort after multiple columns.
+  </div>
+</paper-tooltip>

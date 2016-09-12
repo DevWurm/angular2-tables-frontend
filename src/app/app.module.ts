@@ -7,8 +7,7 @@ import {routing} from "./app.routing";
 import {ConfigFileApiConfigurationService} from "./shared/configuration/config-file-api-configuration.service";
 import {API_CONFIGURATION_TOKEN} from "./shared/configuration/api-configuration";
 import {HttpModule} from "@angular/http";
-import {FilterModule} from "./main/filter/filter.module";
-import {CountsModule} from "./main/counts/counts.module";
+import {ArticlesModule} from "./main/articles/articles.module";
 require("!include-loader!../../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html");
 require("!include-loader!../../bower_components/paper-styles/paper-styles.html");
 
@@ -17,8 +16,7 @@ require("!include-loader!../../bower_components/paper-styles/paper-styles.html")
     BrowserModule,
     routing,
     HttpModule,
-    FilterModule,
-    CountsModule
+    ArticlesModule
   ],
   declarations: [
     AppComponent,

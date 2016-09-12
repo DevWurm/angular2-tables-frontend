@@ -1,0 +1,19 @@
+<h2 class="title">
+  {{title}}
+</h2>
+<div class="lists">
+  <paper-tabs class="lists-selector" [(selected)]="selected">
+    <paper-tab class="list-selection">Vaadin-Grid</paper-tab>
+  </paper-tabs>
+  <iron-pages class="lists-view" [(selected)]="selected">
+    <div class="list">
+      <pc-results-list-vaadin-grid></pc-results-list-vaadin-grid>
+    </div>
+    <div class="list">
+      <pc-counts-list-primeng></pc-counts-list-primeng>
+    </div>
+  </iron-pages>
+</div>
+<div class="bottom">
+  <paper-button class="back-button" raised (click)="navigateToFilter()">Filter counts</paper-button>
+</div>
