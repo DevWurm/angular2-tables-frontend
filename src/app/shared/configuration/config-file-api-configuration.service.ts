@@ -1,31 +1,15 @@
 import { Injectable } from '@angular/core';
 import {ApiConfiguration} from "./api-configuration";
-
-const env = require('!json-loader!../../config/env.json');
-const development = require('!json-loader!../../config/development.json');
-const production = require('!json-loader!../../config/production.json');
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class ConfigFileApiConfigurationService implements ApiConfiguration {
-  private _apiProtocol: string;
-  private _apiUrl: string;
-  private _apiPort: string;
-  private _apiVersion: string;
+  private _apiProtocol = environment.api.apiProtocol;
+  private _apiUrl = environment.api.apiUrl;
+  private _apiPort = environment.api.apiPort;
+  private _apiVersion = environment.api.apiVersion;
 
-  constructor() {
-    if (env.environment == "production") {
-      this.setConfiguration(production);
-    } else {
-      this.setConfiguration(development);
-    }
-  }
-
-  private setConfiguration(configuration) {
-    this._apiProtocol = configuration.apiProtocol;
-    this._apiUrl = configuration.apiUrl;
-    this._apiPort = configuration.apiPort;
-    this._apiVersion = configuration.apiVersion;
-  }
+  constructor() {}
 
   get apiProtocol(): string {
     return this._apiProtocol;
