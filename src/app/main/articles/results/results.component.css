@@ -1,0 +1,46 @@
+pc-results {
+  height: 100%;
+}
+
+.title {
+  @apply(--paper-font-headline);
+  margin: 0;
+  padding: 1%;
+  padding-left: 2% !important;
+
+  background-color: var(--paper-teal-300);
+
+  @apply(--shadow-elevation-2dp);
+}
+
+.lists {
+  width: 100%;
+
+  /* Paper seam */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.lists-selector {
+  --paper-tabs-selection-bar-color: var(--paper-amber-a400);
+}
+
+.list-selection {
+  --paper-tab-ink: var(--paper-amber-a100);
+}
+
+.list {
+  width: 100%;
+}
+
+.bottom {
+  height: 100%;
+  background-color: var(--paper-teal-300);
+
+  @apply(--shadow-elevation-2dp);
+}
+
+.back-button {
+  margin: 1.95%;
+  margin-left: 67px !important;
+  background: var(--paper-amber-a400);
+}
