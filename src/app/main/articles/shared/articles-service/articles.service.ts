@@ -28,7 +28,16 @@ export class ArticlesService {
     const textFilter = filter.textFilter ? `filter=${filter.textFilter}&` : '';
     const rangeFilter = this.buildRangeQuery(filter.articlesFilter);
 
-    return this.http.get(`${this.apiConfig.apiBaseAddr}/counts?${textFilter}${rangeFilter}${sorting}index=${index}&count=${count}`).map(res => res.json());
+    return this.http.get(`${this.apiConfig.apiBaseAddr}/counts?${textFilter}${rangeFilter}${sorting}index=${index}&count=${count}`).map(res => res.json()).map(countsData => {
+      // flatten data, because the grids don't deal well with nested data
+      return countsData.map(countsDate => {
+        const accumulator = {
+          article: countsDate.article
+        }
+
+        return countsDate.counts.reduce((acc, curr) => Object.assign(acc, {[curr.date]: curr.count}), accumulator);
+      })
+    });
   }
 
   buildRangeQuery(articleSelection: ArticleSelection): string {

@@ -48,16 +48,7 @@ export class ResultsListVaadinGridComponent implements OnInit, AfterViewInit, On
   }
 
   getCounts(params: any, callback: Function) {
-    this.subscriptions.push(this.articlesService.getArticles(params.index, params.count, this.sortingSelection, this.filterService.filter).map(countsData => {
-      // flatten data, because Vaadin grid doesnt deal well with nested data
-      return countsData.map(countsDate => {
-        const accumulator = {
-          article: countsDate.article
-        }
-
-        return countsDate.counts.reduce((acc, curr) => Object.assign(acc, {[curr.date]: curr.count}), accumulator);
-      })
-    }).subscribe(
+    this.subscriptions.push(this.articlesService.getArticles(params.index, params.count, this.sortingSelection, this.filterService.filter).subscribe(
       data => {
         if ((this.gridSize <= params.index + params.count) && !(data.length < params.count)) {
           this.gridSize += 10;
