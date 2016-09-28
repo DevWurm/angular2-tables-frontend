@@ -1,4 +1,6 @@
-export class Angular2TablesFrontendPage {
+import { browser, element, by } from 'protractor/globals';
+
+export class WikiviewsFrontend2Page {
   navigateTo() {
     return browser.get('/');
   }

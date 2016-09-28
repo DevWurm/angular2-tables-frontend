@@ -1,10 +1,10 @@
-import { Angular2TablesFrontendPage } from './app.po';
+import { WikiviewsFrontend2Page } from './app.po';
 
-describe('angular2-tables-frontend App', function() {
-  let page: Angular2TablesFrontendPage;
+describe('wikiviews-frontend2 App', function() {
+  let page: WikiviewsFrontend2Page;
 
   beforeEach(() => {
-    page = new Angular2TablesFrontendPage();
+    page = new WikiviewsFrontend2Page();
   });
 
   it('should display message saying app works', () => {

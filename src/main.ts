@@ -1,4 +1,5 @@
-require('!include-loader?script!../bower_components/webcomponentsjs/webcomponents-lite.min');
+import './polyfills';
+
 window.addEventListener('WebComponentsReady', function () {
   require('./bootstrap');
 });
