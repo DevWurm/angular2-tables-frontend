@@ -9,7 +9,7 @@
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "postinstall": "bower install"
+    "postinstall": "bower install && cp ./webpack-build-common.js ./node_modules/angular-cli/models/webpack-build-common.js"
   },
   "private": true,
   "dependencies": {
