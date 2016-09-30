@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ApiConfiguration} from "./api-configuration";
-import {environment} from "../../environments/environment";
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class ConfigFileApiConfigurationService implements ApiConfiguration {
