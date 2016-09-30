@@ -35,7 +35,7 @@ export class ArticlesService {
           article: countsDate.article
         }
 
-        return countsDate.counts.reduce((acc, curr) => Object.assign(acc, {[curr.date]: curr.count}), accumulator);
+        return countsDate.views.reduce((acc, curr) => Object.assign(acc, {[curr.date]: curr.views}), accumulator);
       })
     });
   }
