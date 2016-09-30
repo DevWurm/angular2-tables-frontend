@@ -4,7 +4,7 @@ services:
 language: node_js
 node_js:
 - '6'
-script: npm run build
+script: "npm run build:prod"
 after_success:
 - "./build/travis-ci.build.sh"
 - "./build/travis-ci.deploy.sh"
